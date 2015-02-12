@@ -29,24 +29,32 @@ def isprime(n):
 		if n % x == 0:
 			return False
 	return True
-x = 1
+x = 2
 ultimo_num_triangular = 0
 condition = True
 factores = 1
-while factores <= 100:
+factoresanterior = 1
+factoresfinal = 1
+while factoresfinal <= 500:
 	factores = 1
-	ultimo_num_triangular = ultimo_num_triangular + x
-	for y in range(2,ultimo_num_triangular+1):
+	y=2
+	while y<=x:
 		z = 1
-		if isprime (y):
-			division = ultimo_num_triangular
+		if y == 2 and x%2==0:
+			z = 0
+			pass
+		if isprime (y) and x!=1:
+			division = x
 			while division%y == 0:
 				division = division/y
 				z += 1
 				pass
 			pass
+		y+=1
 		factores = z * factores
 		pass
+	factoresfinal=factores*factoresanterior
+	factoresanterior = factores
 	x += 1
 	pass
-print (ultimo_num_triangular)
+print ((x-2)*(x-1)/2)
