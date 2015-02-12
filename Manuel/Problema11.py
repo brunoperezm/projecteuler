@@ -2,15 +2,15 @@ grilla = [8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8,49,49,99,40,17,81,
 x=0
 z = 0
 mayorproducto = 0
+posicion = []
 while x <= 19:
 	y=0
 	while y <= 16:
 		producto = grilla[20*x+y]*grilla[20*x+y+1]*grilla[20*x+y+2]*grilla[20*x+y+3]
-		print (producto)
 		z+=1
 		if producto>mayorproducto:
+			posicion = [x,y,1]
 			mayorproducto=producto
-			print (mayorproducto)
 			pass
 		y += 1
 		pass
@@ -20,10 +20,11 @@ x=0
 while x <= 16:
 	y=0
 	while y <= 19:
+		z += 1
 		producto = grilla[20*x+y]*grilla[20*x+y+20]*grilla[20*x+y+40]*grilla[20*x+y+60]
 		if producto>mayorproducto:
+			posicion = [x,y,2]
 			mayorproducto=producto
-			#print (mayorproducto)
 			pass
 		y += 1
 		pass
@@ -33,10 +34,25 @@ x=0
 while x <= 16:
 	y=0
 	while y <= 16:
+		z+=1
 		producto = grilla[20*x+y]*grilla[20*x+y+21]*grilla[20*x+y+42]*grilla[20*x+y+63]
 		if producto>mayorproducto:
+			posicion = [x,y,3]
 			mayorproducto=producto
-			#print (mayorproducto)
+			pass
+		y += 1
+		pass
+	x += 1
+	pass
+x = 0
+while x <= 16:
+	y=3
+	while y <= 19:
+		z+=1
+		producto = grilla[20*x+y]*grilla[20*x+y+19]*grilla[20*x+y+38]*grilla[20*x+y+57]
+		if producto>mayorproducto:
+			posicion = [x,y,4]
+			mayorproducto=producto
 			pass
 		y += 1
 		pass
@@ -44,3 +60,4 @@ while x <= 16:
 	pass
 print (mayorproducto)
 print (z)
+print (posicion)
